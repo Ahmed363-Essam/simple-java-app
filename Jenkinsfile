@@ -1,6 +1,10 @@
 pipeline {
     agent any 
 
+    environment{
+        PATH="/otp/maven3/bin:$PATH"
+    }
+
     stages {
         stage('Git') { 
             steps {
@@ -9,9 +13,9 @@ pipeline {
                 echo 'Git cOMPLTED....................'
             }
         }
-        stage('MavenBuild') { 
+        stage('Maven Build') { 
             steps {
-                 sh "mvn --version" 
+                 sh "mvn clean package" 
             }
         }
         stage('Deploy') { 
