@@ -8,6 +8,7 @@ pipeline {
                  withMaven {
                 sh "mvn clean verify"
                 }
+                echo 'Git cOMPLTED....................'
             }
         }
         stage('MavenBuild') { 
