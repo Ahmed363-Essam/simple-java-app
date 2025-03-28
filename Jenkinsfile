@@ -1,38 +1,26 @@
-def gv
-
 pipeline {
-    agent any
+    agent any 
+    environment{
+        PATH = 
+    }
     stages {
-        stage("init") {
+        stage('Git') { 
             steps {
-                script {
-                    git branch: 'main', url: 'https://github.com/Ahmed363-Essam/simple-java-app'
+                git branch: 'main', url: 'https://github.com/Ahmed363-Essam/simple-java-app'
+                 withMaven {
+                sh "mvn clean verify"
                 }
             }
         }
-        stage("build jar") {
+        stage('MavenBuild') { 
             steps {
-                script {
-                    echo "building jar1"
-                    //gv.buildJar()
-                }
+                sh "mvn clean "
             }
         }
-        stage("build image") {
+        stage('Deploy') { 
             steps {
-                script {
-                    echo "building image"
-                    //gv.buildImage()
-                }
+                echo 'Deploy Completed ..........................' 
             }
         }
-        stage("deploy") {
-            steps {
-                script {
-                    echo "deploying"
-                    //gv.deployApp()
-                }
-            }
-        }
-    }   
+    }
 }
