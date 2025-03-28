@@ -17,9 +17,9 @@ pipeline {
                 MAVEN_URL="https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz"
 
                 # Create directory and download Maven
-                sudo mkdir -p ${MAVEN_HOME}
+                mkdir -p ${MAVEN_HOME}
                 wget -q ${MAVEN_URL} -O /tmp/maven.tar.gz
-                sudo tar -xzf /tmp/maven.tar.gz --strip-components=1 -C ${MAVEN_HOME}
+                tar -xzf /tmp/maven.tar.gz --strip-components=1 -C ${MAVEN_HOME}
                 rm /tmp/maven.tar.gz
 
                 # Verify installation
