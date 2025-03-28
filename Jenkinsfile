@@ -14,12 +14,12 @@ pipeline {
                 # Check if Maven is already installed
                 if [ ! -d "$MAVEN_HOME" ]; then
                     echo "Installing Maven..."
-                    sudo mkdir -p $MAVEN_HOME
+                    mkdir -p $MAVEN_HOME
                     wget -q https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O /tmp/maven.tar.gz
-                    sudo tar -xzf /tmp/maven.tar.gz --strip-components=1 -C $MAVEN_HOME
+                    tar -xzf /tmp/maven.tar.gz --strip-components=1 -C $MAVEN_HOME
                     rm /tmp/maven.tar.gz
                 fi
-                
+
                 # Verify Maven installation
                 $MAVEN_HOME/bin/mvn --version
                 '''
