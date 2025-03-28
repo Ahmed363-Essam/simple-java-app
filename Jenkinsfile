@@ -5,15 +5,13 @@ pipeline {
         stage('Git') { 
             steps {
                 git branch: 'main', url: 'https://github.com/Ahmed363-Essam/simple-java-app'
-                 withMaven {
-                sh "mvn clean verify"
-                }
+
                 echo 'Git cOMPLTED....................'
             }
         }
         stage('MavenBuild') { 
             steps {
-                sh "mvn clean "
+                 sh "mvn --version" 
             }
         }
         stage('Deploy') { 
