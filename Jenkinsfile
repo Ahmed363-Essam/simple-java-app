@@ -6,7 +6,7 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                    gv = load "script.groovy"
+                    git branch: 'main', url: 'https://github.com/Ahmed363-Essam/simple-java-app'
                 }
             }
         }
